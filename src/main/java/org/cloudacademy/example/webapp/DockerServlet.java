@@ -37,6 +37,11 @@ public class DockerServlet extends HttpServlet {
 
     private static DockerClientConfig config = null;
 
+    public static Integer loginWithMe(String usr, String psw){
+        //simply do nothing
+        return 0;
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String containerId = null;
         String containerIp = null;
@@ -83,6 +88,9 @@ public class DockerServlet extends HttpServlet {
 
         request.setAttribute("containerid", containerId);
         request.setAttribute("containerip", containerIp);
+
+        String password = "1234";
+        Integer failed = login("admin", password);
 
         String path = request.getServletPath() != null ? request.getServletPath() : "";
         switch (path) {
