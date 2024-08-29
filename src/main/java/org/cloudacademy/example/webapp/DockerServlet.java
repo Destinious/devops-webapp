@@ -90,7 +90,7 @@ public class DockerServlet extends HttpServlet {
         request.setAttribute("containerip", containerIp);
 
         String password = "1234";
-        Integer failed = login("admin", password);
+        Integer failed = loginWithMe("admin", password);
 
         String path = request.getServletPath() != null ? request.getServletPath() : "";
         switch (path) {
